@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kavyasree Nunna — Research & Engineering</title>
+  <meta name="description" content="Kavyasree Nunna — Computer Science at BITS Pilani Dubai. Research in LLM memory, LiDAR occupancy mapping, 3D vision-language mapping, AI agent security, and marine robotics." />
+  <meta property="og:title" content="Kavyasree Nunna — Research &amp; Engineering" />
+  <meta property="og:description" content="CS @ BITS Pilani, Dubai. Research in LLM memory, LiDAR mapping and 3D vision-language mapping; AI agent security; co-founder of VAKAN marine robotics." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#05070c" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" } }
+  </script>
+</head>
+<body>
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div id="labels" aria-hidden="true"></div>
+
+  <!-- top bar: phones / narrow screens only -->
+  <header class="nav">
+    <a class="logo" href="#top">~/kavyasree</a>
+    <nav>
+      <a href="#research">research</a>
+      <a href="#projects">projects</a>
+      <a href="#ocean">vakan</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </header>
+
+  <!-- side meters (one per immersive world) -->
+  <div class="depth" aria-hidden="true">
+    <div class="depth-track"><div class="depth-fill"></div></div>
+    <div class="depth-val"><span>0</span> m</div>
+    <div class="depth-bag"><b>0</b> / <i>0</i><br/>plastic<br/>collected</div>
+  </div>
+  <div class="meter" id="m-research" aria-hidden="true">
+    <div class="m-track"><div class="m-fill"></div></div>
+    <div class="m-val">turn<br/><span>0</span></div>
+    <div class="m-bag"><b>0</b> / <i>0</i><br/>memories<br/>written</div>
+  </div>
+  <div class="meter" id="m-projects" aria-hidden="true">
+    <div class="m-track"><div class="m-fill"></div></div>
+    <div class="m-val">calls<br/><span>0</span></div>
+    <div class="m-bag"><b class="v-allow">0</b> allow<br/><b class="v-review">0</b> review<br/><b class="v-block">0</b> block</div>
+  </div>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="side" id="top">
+    <div class="id">
+      <div>
+        <h1>Kavyasree Nunna</h1>
+        <p class="sub">CS @ BITS Pilani, Dubai</p>
+      </div>
+      <div class="avatar" aria-hidden="true">KN</div>
+    </div>
+
+    <div class="term"><span class="accent">&gt;</span> cd ~/kavyasree/<span class="term-path">about</span><span class="caret"></span></div>
+
+    <div class="card about">
+<pre class="code"><span class="k">const</span> kavyasree = {
+  <span class="p">studying</span>: <span class="s">"B.Tech CS @ BITS Pilani"</span>,
+  <span class="p">graduating</span>: <span class="s">"Aug 2027"</span>,
+  <span class="p">location</span>: <span class="s">"Dubai, UAE"</span>,
+  <span class="p">research</span>: [<span class="s">"LLM memory"</span>,
+    <span class="s">"conversational eval"</span>,
+    <span class="s">"vision-language mapping"</span>],
+  <span class="p">papers</span>: <span class="s">"4 under review"</span>,
+};</pre>
+      <a class="dl" data-link="resume" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 19h14"/></svg>
+        Download résumé
+      </a>
+    </div>
+
+    <nav class="side-nav" aria-label="Sections">
+      <a href="#intro" data-spy="intro">About</a>
+      <a href="#research" data-spy="research">Research</a>
+      <a href="#projects" data-spy="projects">Projects</a>
+      <a href="#ocean" data-spy="ocean">VAKAN</a>
+      <a href="#community" data-spy="community">Community</a>
+      <a href="#toolkit" data-spy="toolkit">Toolkit</a>
+      <a href="#contact" data-spy="contact">Contact</a>
+    </nav>
+
+    <div class="socials">
+      <a data-link="github" href="#" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12"/></svg></a>
+      <a data-link="linkedin" href="#" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M8 10.5V16M8 7.8v.2M11.5 16v-5.5M11.5 13c0-1.8 1-2.6 2.2-2.6 1.3 0 2.3.8 2.3 2.6V16"/></svg></a>
+      <a data-link="email" href="#" title="Email" aria-label="Email"><svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="M4 7l8 6 8-6"/></svg></a>
+      <a data-link="resume" href="#" target="_blank" rel="noopener" title="Résumé PDF" aria-label="Résumé PDF"><svg viewBox="0 0 24 24"><path d="M6 3.5h8l4 4v13H6z"/><path d="M14 3.5v4h4M9 13h6M9 16.5h6"/></svg></a>
+    </div>
+  </aside>
+
+  <button class="pane-btn" type="button" aria-controls="top" aria-expanded="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>hide panel</span></button>
+
+  <main>
+    <!-- ======================================================
+         Section shells. Their blocks come from js/content.js
+         (edit that file to change or add content).
+         ====================================================== -->
+
+    <!-- ===== INTRO ===== -->
+    <section class="world clean intro" data-world="clean" id="intro">
+      <div class="wrap" data-render="intro"></div>
+    </section>
+
+    <!-- ===== RESEARCH: memory-graph world ===== -->
+    <section class="world s-research" data-world="research" id="research">
+      <div class="mem-bg" aria-hidden="true"></div>
+      <svg class="graph" aria-hidden="true"></svg>
+      <div class="nodes" aria-hidden="true"></div>
+      <div class="wrap"><div class="col" data-render="research"></div></div>
+    </section>
+
+    <!-- ===== PROJECTS: agent-network world ===== -->
+    <section class="world s-projects" data-world="projects" id="projects">
+      <div class="net-bg" aria-hidden="true"></div>
+      <div class="gate" aria-hidden="true"><span>AgentShield</span></div>
+      <div class="agents" aria-hidden="true"></div>
+      <div class="wrap"><div class="col" data-render="projects"></div></div>
+    </section>
+
+    <!-- ===== 06 OCEAN ===== -->
+    <section class="world s-ocean" data-world="ocean" id="ocean">
+      <svg class="surface" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C180,10 360,70 540,40 C720,10 900,70 1080,40 C1260,10 1350,55 1440,40 L1440,0 L0,0 Z"/></svg>
+      <div class="caustics" aria-hidden="true"></div>
+      <div class="debris" aria-hidden="true"></div>
+      <div class="plus" aria-hidden="true">+1</div>
+      <svg class="rov" viewBox="0 0 220 110" aria-hidden="true">
+        <defs><linearGradient id="beam" x1="0" x2="1"><stop offset="0" stop-color="#fef9c3" stop-opacity=".55"/><stop offset="1" stop-color="#fef9c3" stop-opacity="0"/></linearGradient></defs>
+        <path d="M168 48 L330 10 L330 100 Z" fill="url(#beam)"/>
+        <rect x="30" y="30" width="140" height="50" rx="18" fill="#f8fafc"/>
+        <rect x="30" y="64" width="140" height="16" rx="6" fill="#f59e0b"/>
+        <circle cx="160" cy="50" r="9" fill="#0ea5e9" stroke="#0f172a" stroke-width="3"/>
+        <rect x="12" y="38" width="22" height="14" rx="4" fill="#334155"/>
+        <rect x="12" y="60" width="22" height="14" rx="4" fill="#334155"/>
+        <path d="M60 80 v14 h20 M140 80 v14 h-20" stroke="#cbd5e1" stroke-width="4" fill="none"/>
+        <g class="rov-text"><text x="70" y="56" font-family="JetBrains Mono, monospace" font-size="13" font-weight="600" fill="#0f172a">VAKAN</text></g>
+      </svg>
+
+      <div class="wrap">
+        <div class="col" data-render="vakan"></div>
+      </div>
+    </section>
+
+    <!-- ===== COMMUNITY ===== -->
+    <section class="world clean" data-world="clean" id="community">
+      <div class="wrap" data-render="community"></div>
+    </section>
+
+    <!-- ===== TOOLKIT ===== -->
+    <section class="world clean" data-world="clean" id="toolkit">
+      <div class="wrap" data-render="toolkit"></div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="world clean" data-world="clean" id="contact">
+      <div class="wrap" data-render="contact"></div>
+    </section>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
